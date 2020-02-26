@@ -19,4 +19,4 @@ jobs:
         remote: ~/var/www/html/SerwisACO
         host: ${{ secrets.REMOTE_HOST }}
         username: ${{ secrets.REMOTE_USER }}
-        privateKey: ${{ secrets.SERVER_SSH_KEY }}
+        password: ${{ secrets.REMOTE_PASS }}

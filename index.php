@@ -5,14 +5,16 @@
   <meta charset="utf-8">
 
   <title>SerwisACO</title>
-  <meta name="description" content="The HTML5 Herald">
-  <meta name="author" content="SitePoint">
+  <meta name="description" content="SerwisACO">
+  <meta name="author" content="Unnamed Group of Deers">
 
-  <link rel="stylesheet" href="css/styles.css?v=1.0">
+  <link rel="stylesheet" href="css/styles.css">
 
 </head>
 
-<body>
-<?php include('home.php') ?>
+<body id="body">
+<?php include('layout.php') ?>
+<?php include('pages/home.php') ?>
+<?php include('footer.php') ?>
 </body>
 </html>

@@ -1,0 +1,26 @@
+#body {
+    padding: 0;
+    margin: 0;
+    background-color: #222629;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Montserrat', sans-serif;
+    color: #86C232;
+}
+
+
+*, *:before, *:after {
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+a {
+    color: #61892F;
+}
+
+#footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}

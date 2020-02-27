@@ -22,21 +22,6 @@ class UsersService
         return $data;
     }
 
-    // public function addStudent($student)
-    // {
-    //     $conn = $this->database->connection();
-
-    //     $stmt = $conn->prepare("INSERT INTO students (id, first_name, last_name, gender, course) VALUES (?, ?, ?, ?, ?)");
-    //     $stmt->bindParam(1, $student->id, PDO::PARAM_INT);
-    //     $stmt->bindParam(2, $student->first_name, PDO::PARAM_STR);
-    //     $stmt->bindParam(3, $student->last_name, PDO::PARAM_STR);
-    //     $stmt->bindParam(4, $student->gender, PDO::PARAM_STR);
-    //     $stmt->bindParam(5, $student->course, PDO::PARAM_INT);
-    //     $stmt->execute();
-
-    //     return $this->getStudents();
-    // }
-
     public function getUser($email)
     {
         $conn = $this->database->connection();
@@ -53,30 +38,4 @@ class UsersService
             throw new Exception('Not found');
         }
     }
-
-    // public function updateStudent($id, $student)
-    // {
-    //     $conn = $this->database->connection();
-
-    //     $stmt = $conn->prepare("UPDATE students SET first_name = ?, last_name = ?, gender = ?, course = ? WHERE id = ?");
-    //     $stmt->bindParam(1, $student->first_name, PDO::PARAM_STR);
-    //     $stmt->bindParam(2, $student->last_name, PDO::PARAM_STR);
-    //     $stmt->bindParam(3, $student->gender, PDO::PARAM_STR);
-    //     $stmt->bindParam(4, $student->course, PDO::PARAM_INT);
-    //     $stmt->bindParam(5, $id, PDO::PARAM_INT);
-    //     $stmt->execute();
-
-    //     return $this->getStudents();
-    // }
-
-    // public function deleteStudent($index)
-    // {
-    //     $conn = $this->database->connection();
-
-    //     $stmt = $conn->prepare("DELETE FROM students WHERE id = ?");
-    //     $stmt->bindParam(1, $index, PDO::PARAM_INT);
-    //     $stmt->execute();
-
-    //     return $this->getStudents();
-    // }
 }

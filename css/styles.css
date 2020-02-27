@@ -5,7 +5,12 @@
     background-repeat: no-repeat;
     background-size: cover;
     font-family: 'Montserrat', sans-serif;
-    color: #86C232;
+    color: #f44336;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 
@@ -15,7 +20,7 @@
 }
 
 a {
-    color: #61892F;
+    color: #f44336;
 }
 
 #footer {
@@ -24,3 +29,22 @@ a {
     justify-content: center;
     width: 100%;
 }
+
+#login {
+    width: 300px;
+    padding: 20px;
+    flex: 0;
+    border-radius: 5px;
+    background-color: #3a4146;
+}
+
+#logo {
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    border: none;
+    font: normal 90px/1 "Comic Sans MS", cursive, sans-serif;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    text-shadow: 2px 2px 2px rgba(0,0,0,0.5) ;
+  }

@@ -30,13 +30,19 @@ try {
 	<body>
 
 		<?php
+		include('./viewModules/components/topbar.php');
 		include('./viewModules/components/banner.php');
+		
+
+		echo "<div id='content'>";
 
 		if (isLogged())
 			include('./viewModules/pages/home_logged_in.php');
 		else
 			include('./viewModules/pages/home.php');
 
+		echo '</div>';
+		
 		include('./viewModules/components/footer.php')
 		?>
 		<script async defer src="https://use.fontawesome.com/releases/v5.6.3/js/all.js" integrity="sha384-EIHISlAOj4zgYieurP0SdoiBYfGJKkgWedPHH4jCzpCXLmzVsw1ouK59MuUtP4a1" crossorigin="anonymous"></script>

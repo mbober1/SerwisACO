@@ -329,7 +329,6 @@ html {
 article,
 aside,
 figure,
-footer,
 header,
 hgroup,
 section {
@@ -369,7 +368,7 @@ a strong {
 }
 
 a:hover {
-  color: #363636;
+  color: #f44336;
 }
 
 code {
@@ -5659,7 +5658,7 @@ fieldset[disabled] .select select:hover {
 }
 
 .card {
-  background-color: #3a4146;
+  background-color: #323232;
   box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0px 0 1px rgba(10, 10, 10, 0.02);
   color: #4a4a4a;
   max-width: 100%;

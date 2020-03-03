@@ -1,36 +1,46 @@
+
+<?php
+include './config/system_config.php';
+session_start();
+ob_start();
+
+require $__Includes['DBClient'];
+try {
+//	$db = new DBClient();
+//	echo 'Successfuly connected to Database!';
+} catch (PDOException $e) {
+	echo 'ERROR: ' . $e->getMessage();
+}
+?>
 <!doctype html>
 
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>SerwisACO</title>
-  <meta name="description" content="SerwisACO">
-  <meta name="author" content="Unnamed Group of Deers">
+		<title>SerwisACO - projekt</title>
+		<meta name="description" content="SerwisACO">
+		<meta name="author" content="Unnamed Group of Deers">
 
-  <link rel="stylesheet" href="css/styles.css">
-  <link rel="stylesheet" href="css/bulma.css">
-  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+		<link rel="stylesheet" href="css/styles.css">
+		<link rel="stylesheet" href="css/bulma.css">
+	</head>
 
-</head>
+	<body>
 
-<body id="body">
-  
-  
+		<?php
+		include('./viewModules/components/banner.php');
 
-<?php
-session_start();
+		if (isLogged())
+			include('./viewModules/pages/home_logged_in.php');
+		else
+			include('./viewModules/pages/home.php');
 
-include('layout.php');
-
-if(!(isset($_SESSION['logged']) || ($_SESSION['logged']==true)))
-{
-    include('login.php');
-}
-else include('pages/home.php');
-
-include('footer.php')
-?>
-</body>
+		include('./viewModules/components/footer.php')
+		?>
+		<script async defer src="https://use.fontawesome.com/releases/v5.6.3/js/all.js" integrity="sha384-EIHISlAOj4zgYieurP0SdoiBYfGJKkgWedPHH4jCzpCXLmzVsw1ouK59MuUtP4a1" crossorigin="anonymous"></script>
+	</body>
 </html>
+<?php
+ob_end_flush();

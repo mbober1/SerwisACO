@@ -2,11 +2,8 @@ body {
     padding: 0;
     margin: 0;
     background-color: #222629;
-    background-image: url("/SerwisACO/img/audi.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
     font-family: 'Montserrat', sans-serif;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 
@@ -27,7 +24,7 @@ footer {
     justify-content: center;
     width: 100%;
     color: white;
-    background-color: #f44336;
+    background-color: #323232;
 }
 
 #login {
@@ -67,7 +64,7 @@ footer {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    margin-bottom: 100px;
+    /* margin-bottom: 100px; */
   }
 
   #topbar {
@@ -111,3 +108,64 @@ footer {
     background-color: #323232;
     width: 400px;
 } */
+
+.tile_main {
+    background-color: #323232;
+    width: 70%;
+    padding: 40px;
+    border-radius: 2px;
+}
+
+.tiles {
+    background-color: #f44336;
+    width: 33%;
+    padding: 60px;
+}
+
+.tiles_containter {
+    display: flex;
+    justify-content: space-around;
+}
+
+.tile_title {
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.tile_text {
+
+    color: white;
+}
+
+.background {
+    background-image: url("/SerwisACO/img/audi.jpg");
+    height: 90vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.tile_button {
+    border: none;
+    background-color: #323232;
+    color: white;
+    border-radius: 0px;
+}
+
+.tile_button:hover {
+    color: #f44336;
+}
+
+.queue {
+    background-color: #4a4a4a;
+    border-radius: 3px;
+    color: white;
+    padding: 10px;
+    margin: 10px;
+}
+
+h1 {
+    color: white;
+    font-weight: bold;
+    font-size: 25px;
+}

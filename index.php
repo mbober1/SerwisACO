@@ -23,8 +23,9 @@ try {
 		<meta name="description" content="SerwisACO">
 		<meta name="author" content="Unnamed Group of Deers">
 
-		<link rel="stylesheet" href="css/styles.css">
+		
 		<link rel="stylesheet" href="css/bulma.css">
+		<link rel="stylesheet" href="css/styles.css">
 	</head>
 
 	<body>
@@ -36,10 +37,34 @@ try {
 
 		echo "<div id='content'>";
 
-		if (isLogged())
-			include('./viewModules/pages/home_logged_in.php');
-		else
-			include('./viewModules/pages/home.php');
+		// if (isLogged())
+		// 	include('./viewModules/pages/home_logged_in.php');
+		// else {
+			
+		// }
+		// 	include('./viewModules/pages/home.php');
+		
+		switch($_GET['site']) {
+			case "queue":
+				$title = "Kolejka";
+				include('./viewModules/pages/queue.php');
+				break;
+		
+			case "signup":
+				$title = "Rejestracja";
+				include('./viewModules/pages/signup.php');
+				break;
+			
+			case "signip":
+				$title = "Logowanie";
+				include('./viewModules/pages/signin.php');
+				break;
+	
+			default:
+				$title = "Home";
+				include('./viewModules/pages/home.php');
+				break;
+		}
 
 		echo '</div>';
 		

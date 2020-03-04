@@ -3,7 +3,6 @@
 include './config/system_config.php';
 session_start();
 ob_start();
-$title = "Dupa";
 
 require $__Includes['DBClient'];
 try {
@@ -12,7 +11,7 @@ try {
 } catch (PDOException $e) {
 	echo 'ERROR: ' . $e->getMessage();
 }
-
+if (!isset($_GET['site'])) $_GET['site'] = 'home';
 switch($_GET['site']) {
 	case "queue":
 		$title = "Kolejka";

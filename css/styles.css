@@ -13,7 +13,12 @@ body {
 }
 
 a {
-    color: #323232;
+    color: #f44336;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #525252;
     text-decoration: none;
 }
 
@@ -39,7 +44,7 @@ footer {
     -moz-box-sizing: content-box;
     box-sizing: content-box;
     border: none;
-    font: normal 45px/1 "Comic Sans MS", cursive, sans-serif;
+    font: normal 45px/1 cursive, sans-serif;
     -o-text-overflow: ellipsis;
     text-overflow: ellipsis;
     font-weight: bold;
@@ -50,21 +55,20 @@ footer {
     -moz-box-sizing: content-box;
     box-sizing: content-box;
     border: none;
-    font: normal 15px/1 "Comic Sans MS", cursive, sans-serif;
+    font: normal 15px/1 cursive, sans-serif;
     -o-text-overflow: ellipsis;
     text-overflow: ellipsis;
     letter-spacing: 11px;
   }
 
 
-  #baner {
+.baner {
     background: #ffffff;
     width: 100%;
     height: 130px;
     display: flex;
     align-items: center;
     justify-content: space-around;
-    /* margin-bottom: 100px; */
   }
 
   #topbar {
@@ -93,12 +97,21 @@ footer {
     filter: invert(1);
 }
 
-#menu {
+.menu {
     display: flex;
     align-items: center;
     justify-content: space-between;
     font-size: large;
 }
+
+div.baner a {
+    color: #323232;
+  }
+
+
+div.baner a:hover {
+    color: #f44336;
+  }
 
 .menu_button {
     padding: 7px;
@@ -111,9 +124,11 @@ footer {
 
 .tile_main {
     background-color: #323232;
-    width: 70%;
+    width: 50%;
     padding: 40px;
     border-radius: 2px;
+    text-align: center;
+    color: white;
 }
 
 .tiles {
@@ -162,6 +177,7 @@ footer {
     color: white;
     padding: 10px;
     margin: 10px;
+    text-align: left;
 }
 
 h1 {

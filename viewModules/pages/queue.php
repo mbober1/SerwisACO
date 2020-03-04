@@ -2,23 +2,23 @@
 	<div class='tile_main'>
 		<h1>KOLEJKA NAPRAW</h1>
 	<div class='queue'>
-			PASSAT
+			1. PASSAT	| Status: w trakcie naprawy
 		</div>
 
 		<div class='queue'>
-			KAŁDI
+			2. KAŁDI	| Status: w trakcie naprawy
 		</div>
 
 		<div class='queue'>
-			BMW M5
+			3. BMW M5	| Status: oczekuje na wjazd 
 		</div>
 
 		<div class='queue'>
-			SKODA 100
+			4. SKODA 100	| Status: nie dostarczono
 		</div>
 
 		<div class='queue'>
-			KOENIGSEGG AGERA RS
+			5. KOENIGSEGG AGERA RS	| Status: w trakcie naprawy
 		</div>
 	</div>
 </div>

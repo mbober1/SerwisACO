@@ -59,6 +59,11 @@ try {
 				$title = "Logowanie";
 				include('./viewModules/pages/signin.php');
 				break;
+			
+			case "addcar":
+				$title = "Dodawanie auta";
+				include('./viewModules/pages/add_car.php');
+				break;
 	
 			default:
 				$title = "Home";

@@ -1,4 +1,4 @@
-<div id="baner">
+<div class="baner">
     <a href="index.php">
         <div id="logo">
             <div id="logo_main">SERWIS <font color="#f44336">ACO</font></div>
@@ -6,7 +6,7 @@
         </div>
     </a> 
 
-    <div id="menu">
+    <div class="menu">
         <a href="index.php?site=home"><div class='menu_button'>HOME</div></a>
         <a href="index.php?site=queue"><div class='menu_button'>KOLEJKA NAPRAW</div></a>
         <a href="#"><div class='menu_button'>ZŁÓŻ ZLECENIE</div></a>

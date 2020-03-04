@@ -1,4 +1,4 @@
-<div class='background' style=' display: flex; align-items: center; justify-content: center;'>
+<div class='background'>
 	<div class='tile_main'>
 		<h1>KOLEJKA NAPRAW</h1>
 	<div class='queue'>

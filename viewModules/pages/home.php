@@ -1,7 +1,12 @@
-<div class='background'></div>
+<div class='background'><div data-aos="fade-right"
+     data-aos-offset="300"
+     data-aos-easing="ease-in-sine"><h2>Poznaj warsztat nowej generacji!</h2></div></div>
 <div class='tiles_containter'>
+	<script>
+		AOS.init();
+	</script>
 	<div class='tiles'>
-		<div class='tile_title'>SZUKASZ SPRAWDZONEGO WARSZTATU?</div>
+		<div class='tile_title'>SZUKASZ RZETELNEGO WARSZTATU?</div>
 		<div class='tile_text'>Zostań naszym klientem, a gwarantujemy Ci że zostaniesz z nami na dłużej. Rejestracja jest w pełni darmowa i niezobowiązująca. Jako nasz klient będziesz miał natychmiastowy dostęp do statusu naprawy swojego samochodu.</div>
 		<a href="index.php?site=signup" class="tile_button button">Rejestracja</a>
 	</div>

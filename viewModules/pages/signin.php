@@ -1,4 +1,4 @@
-<div class='background' style=' display: flex; align-items: center; justify-content: center;'>
+<div class='background'>
 	<div class="tile_main" style=" width: 350px">
 
 		<div class="field">

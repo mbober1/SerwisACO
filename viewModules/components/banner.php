@@ -7,7 +7,7 @@
     </a> 
 
     <div class="menu">
-        <a href="index.php?site=home"><div class='menu_button'>HOME</div></a>
+        <a href="index.php?site=home"><div class='menu_button'>STRONA GŁÓWNA</div></a>
         <a href="index.php?site=queue"><div class='menu_button'>KOLEJKA NAPRAW</div></a>
         <a href="#"><div class='menu_button'>PANEL KLIENTA</div></a>
         <a href="#"><div class='menu_button'>KONTAKT</div></a>

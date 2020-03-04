@@ -30,6 +30,8 @@ footer {
     width: 100%;
     color: white;
     background-color: #323232;
+    margin-top: 20px;
+    padding: 8px;
 }
 
 #login {
@@ -44,7 +46,7 @@ footer {
     -moz-box-sizing: content-box;
     box-sizing: content-box;
     border: none;
-    font: normal 45px/1 cursive, sans-serif;
+    font: normal 45px/1 cursive;
     -o-text-overflow: ellipsis;
     text-overflow: ellipsis;
     font-weight: bold;
@@ -55,7 +57,7 @@ footer {
     -moz-box-sizing: content-box;
     box-sizing: content-box;
     border: none;
-    font: normal 15px/1 cursive, sans-serif;
+    font: normal 15px/1 cursive;
     -o-text-overflow: ellipsis;
     text-overflow: ellipsis;
     letter-spacing: 11px;
@@ -114,7 +116,7 @@ div.baner a:hover {
   }
 
 .menu_button {
-    padding: 9px;
+    padding: 11px;
 }
 
 /* #content {
@@ -135,6 +137,7 @@ div.baner a:hover {
     background-color: #f44336;
     width: 33%;
     padding: 60px;
+    text-align: justify;
 }
 
 .tiles_containter {
@@ -146,11 +149,13 @@ div.baner a:hover {
     color: white;
     font-size: 26px;
     font-weight: bold;
+    margin-bottom: 15px;
 }
 
 .tile_text {
     font-size: 18px;
     color: white;
+    margin-bottom: 15px;
 }
 
 .background {
@@ -158,6 +163,9 @@ div.baner a:hover {
     height: 90vh;
     background-repeat: no-repeat;
     background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .tile_button {
@@ -184,4 +192,10 @@ h1 {
     color: white;
     font-weight: bold;
     font-size: 25px;
+}
+
+h2 {
+    color: white;
+    font-weight: bold;
+    font-size: 90px;
 }

@@ -64,12 +64,13 @@ switch($_GET['site']) {
 		<meta name="author" content="Unnamed Group of Deers">
 		<link rel="icon" type="image/png" href="img/icon.png" />
 
-		
+		<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 		<link rel="stylesheet" href="css/bulma.css">
 		<link rel="stylesheet" href="css/styles.css">
 	</head>
 
 	<body>
+		<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 
 		<?php
 		include('./viewModules/components/topbar.php');

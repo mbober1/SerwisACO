@@ -65,6 +65,7 @@ switch($_GET['site']) {
 		<link rel="icon" type="image/png" href="img/icon.png" />
 
 		<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+		<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
 		<link rel="stylesheet" href="css/bulma.css">
 		<link rel="stylesheet" href="css/styles.css">
 	</head>

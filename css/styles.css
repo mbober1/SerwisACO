@@ -46,7 +46,8 @@ footer {
     -moz-box-sizing: content-box;
     box-sizing: content-box;
     border: none;
-    font: normal 45px/1 cursive;
+    font: normal 52px/1 cursive;
+    font-family: 'Lato', sans-serif;
     -o-text-overflow: ellipsis;
     text-overflow: ellipsis;
     font-weight: bold;
@@ -58,6 +59,7 @@ footer {
     box-sizing: content-box;
     border: none;
     font: normal 15px/1 cursive;
+    font-family: 'Lato', sans-serif;
     -o-text-overflow: ellipsis;
     text-overflow: ellipsis;
     letter-spacing: 11px;

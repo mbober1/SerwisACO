@@ -62,6 +62,7 @@ switch($_GET['site']) {
 		<title>SerwisACO - <?php echo $title ?></title>
 		<meta name="description" content="SerwisACO">
 		<meta name="author" content="Unnamed Group of Deers">
+		<link rel="icon" type="image/png" href="img/icon.png" />
 
 		
 		<link rel="stylesheet" href="css/bulma.css">

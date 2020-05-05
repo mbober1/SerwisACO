@@ -20,6 +20,7 @@ function isJSON($string) {
 
 function isLogged() {
 	return !empty($_SESSION['user_data']['logged_in']);
+	// return $_SESSION['logged'];
 }
 
 function getUserID() {
@@ -29,7 +30,18 @@ function getUserID() {
 		return 0;
 }
 
-function mustBeLogged($howToRedirect = false) {
+function getUserName() {
+	if (isLogged())
+		return $_SESSION['user_data']['user_firstname'];
+	else
+		return 0;
+}
+
+
+
+
+
+// function mustBeLogged($howToRedirect = false) {
 //	if (!isLogged()) {
 //		if ($howToRedirect)
 //			$_SESSION['login_referer'] = $_SITE_CONFIG['main_directory'];
@@ -46,4 +58,4 @@ function mustBeLogged($howToRedirect = false) {
 //		];
 //		header('Location: ' . $_SITE_CONFIG['main_directory'] . '/uzytkownik/status');
 //		exit();
-}
+// }

@@ -1,25 +1,29 @@
+<?php
+
+echo "
 <div class='background'>
 	<div class='tile_main'>
-		<h1>KOLEJKA NAPRAW</h1>
-	<div class='queue'>
-			1. PASSAT	| Status: w trakcie naprawy
-		</div>
+		<h1>KOLEJKA NAPRAW</h1>";
 
-		<div class='queue'>
-			2. KAŁDI	| Status: w trakcie naprawy
-		</div>
+try {
+	$rows = $service->getQueue();
+	while ($row = array_shift($rows)) {
+		$car = $service->carInfo($row['carid']);
+		echo "<div class='queue'>";
+		echo "<div>", $car['brand']," ", $car['model'] , "</div>";
+		echo "<div>Aktualizacja: ", $row['timestamp'] , "</div>";
+		echo "<div>| Status: ", $row['status'] , "</div>";
+		echo "</div>";
+	}
 
-		<div class='queue'>
-			3. BMW M5	| Status: oczekuje na wjazd 
-		</div>
+} catch (PDOException $e) {
+	echo 'ERROR: ' . $e->getMessage();
+}
 
-		<div class='queue'>
-			4. SKODA 100	| Status: nie dostarczono
-		</div>
 
-		<div class='queue'>
-			5. KOENIGSEGG AGERA RS	| Status: w trakcie naprawy
-		</div>
+if(isLogged()) echo'<div class="control"><a href="index.php?site=addqueue"><button class="button is-link">Dodaj auto do kolejki</button></a></div>';
+
+echo'
 	</div>
-</div>
+</div>';
 

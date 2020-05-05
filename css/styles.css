@@ -128,7 +128,7 @@ div.baner a:hover {
 
 .tile_main {
     background-color: #323232;
-    width: 650px;
+    /* width: 650px; */
     padding: 40px;
     border-radius: 4px;
     text-align: center;
@@ -189,6 +189,7 @@ div.baner a:hover {
     padding: 10px;
     margin: 10px;
     text-align: left;
+    display: flex;
 }
 
 h1 {

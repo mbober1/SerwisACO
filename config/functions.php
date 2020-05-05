@@ -20,7 +20,6 @@ function isJSON($string) {
 
 function isLogged() {
 	return !empty($_SESSION['user_data']['logged_in']);
-	// return $_SESSION['logged'];
 }
 
 function getUserID() {
@@ -37,8 +36,12 @@ function getUserName() {
 		return 0;
 }
 
+function getUserPermissions() {
+	return $_SESSION['user_data']['permissions'];
+}
 
 
+$status = array(0=>"Złożono zlecenie", 1=>"Przyjęto", 2=>"W trakcie naprawy", 3=>"Do odbioru", 4=>"Zakończono");
 
 
 // function mustBeLogged($howToRedirect = false) {

@@ -6,7 +6,7 @@ else {
         if (isset($_POST['carSelect']) && isset($_POST['failure'])) {
             try {
                 print_r($_POST['carSelect']);
-                $query = $service->addToQueue($_POST['carSelect']);
+                $query = $service->addToQueue($_POST['carSelect'], $_POST['failure']);
                 header('Location: index.php?site=queue');
             } catch (Exception $e) {
                 $error = 'Wystąpił błąd';

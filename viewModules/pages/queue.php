@@ -12,7 +12,7 @@ try {
 		echo "<div class='queue'>";
 		echo "<div>", $car['brand']," ", $car['model'] , "</div>";
 		echo "<div>Aktualizacja: ", $row['timestamp'] , "</div>";
-		echo "<div>| Status: ", $row['status'] , "</div>";
+		echo "<div>| Status: ", $status[$row["status"]] , "</div>";
 		echo "</div>";
 	}
 

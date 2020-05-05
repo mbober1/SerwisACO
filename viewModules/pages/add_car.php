@@ -11,7 +11,7 @@ else {
                 $vin = strtoupper($_POST['vin']);
                 $ownerid = getUserID();
                 $query = $service->addcar($ownerid, $brand, $model, $vin, $_POST['mileage'], $_POST['power']);
-                header('Location: index.php?site=queue');
+                header('Location: index.php?site=control');
             } catch (Exception $e) {
                 $error = 'Wystąpił błąd';
                 print_r($e);

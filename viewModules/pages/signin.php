@@ -17,6 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 					$_SESSION['user_data']['logged_in'] = true;
 					$_SESSION['user_data']['user_id'] = $user['id'];
 					$_SESSION['user_data']['user_firstname'] = $user['firstname'];
+					$_SESSION['user_data']['permissions'] = $user['permission'];
 					header('Location: index.php');
 				}
 				else throw new Exception('Not found');
@@ -34,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <div class='background'>
 	<div class="tile_main">
-	Zaloguj się
+	<h1>Zaloguj się</h1>
 	<form id="login" class="card container" method="post">
 			<div class="field">
 			<p class="control has-icons-left has-icons-right">

@@ -55,14 +55,15 @@ class UsersService {
 
 
 	public function getQueue() {
-		$stmt = $this->database->prepare('SELECT * FROM `queue`');
+		$stmt = $this->database->prepare('SELECT * FROM `queue` WHERE `status` != 4');
 		$stmt->execute();
 		return $stmt->fetchAll();
 	}
 
-	public function addToQueue($carid) {
-		$stmt = $this->database->prepare("INSERT INTO `queue` (`id`, `carid`, `status`, `timestamp`) VALUES (NULL, :carid, '0', CURRENT_TIMESTAMP);");
+	public function addToQueue($carid, $failure) {
+		$stmt = $this->database->prepare("INSERT INTO `queue` (`id`, `carid`, `status`, `timestamp`, `failure`) VALUES (NULL, :carid, '0', CURRENT_TIMESTAMP, :failure);");
 		$stmt->bindValue(':carid', $carid, PDO::PARAM_STR);
+		$stmt->bindValue(':failure', $failure, PDO::PARAM_STR);
 		return $stmt->execute();
 	}
 
@@ -78,6 +79,27 @@ class UsersService {
 		$stmt->bindParam(1, $ownerid, PDO::PARAM_STR);
 		$stmt->execute();
 		return $stmt->fetchAll();
+	}
+
+	public function checkMyQueue($ownerid) {
+		$carIds = array_column($this->getCars($ownerid), 'id');
+		$in = join(',', array_fill(0, count($carIds), '?'));
+		$stmt = $this->database->prepare('SELECT * FROM `queue` WHERE carid IN ('.$in.')');
+		$stmt->execute($carIds);
+		return $stmt->fetchAll();
+	}
+
+	public function removeFromQueue($id) {
+		$stmt = $this->database->prepare("DELETE FROM `queue` WHERE `queue`.`id` = ?;");
+		$stmt->bindParam(1, $id, PDO::PARAM_STR);
+		return $stmt->execute();
+	}
+
+	public function changeStatus($id, $status) {
+		$stmt = $this->database->prepare("UPDATE `queue` SET `status` = ? WHERE `queue`.`id` = ?;");
+		$stmt->bindParam(1, $status, PDO::PARAM_STR);
+		$stmt->bindParam(2, $id, PDO::PARAM_STR);
+		return $stmt->execute();
 	}
 
 

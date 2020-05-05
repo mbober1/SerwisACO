@@ -127,10 +127,9 @@ div.baner a:hover {
 } */
 
 .tile_main {
-    background-color: #323232;
-    /* width: 650px; */
-    padding: 40px;
-    border-radius: 4px;
+    background-color: rgb(74, 74, 74, 0.85);
+    padding: 20px;
+    border-radius: 2px;
     text-align: center;
     color: white;
 }
@@ -183,11 +182,11 @@ div.baner a:hover {
 }
 
 .queue {
-    background-color: #4a4a4a;
-    border-radius: 3px;
+    background-color: #323232;
+    border-radius: 2px;
     color: white;
-    padding: 10px;
-    margin: 10px;
+    padding: 15px;
+    margin: 15px;
     text-align: left;
     display: flex;
 }
@@ -196,6 +195,7 @@ h1 {
     color: white;
     font-weight: bold;
     font-size: 25px;
+    text-align: center;
 }
 
 h2 {
@@ -208,4 +208,34 @@ h2 {
     display: flex; 
     align-items: center; 
     justify-content: center;
+}
+
+.control {
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.control_panel {
+    /* justify-content: space-around; */
+    margin: 10px;
+    background-color: rgb(74, 74, 74, 0.85);
+    padding: 25px;
+    min-width: 400px;
+    min-height: 200px;
+    border-radius: 2px;
+}
+
+.carlist {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+}
+
+.carinfo {
+    padding: 10px;
+    background-color: #474747;
+    margin: 10px;
 }

@@ -3,7 +3,7 @@
      data-aos-easing="ease-in-sine"><h2>Poznaj warsztat nowej generacji!</h2></div></div>
 <div class='tiles_containter'>
 	<script>
-		AOS.init();
+		AOS.init(); //animacja
 	</script>
 	<div class='tiles'>
 		<div class='tile_title'>SZUKASZ RZETELNEGO WARSZTATU?</div>

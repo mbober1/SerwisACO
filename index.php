@@ -1,16 +1,20 @@
 
 <?php
 include './config/system_config.php';
+
 session_start();
 ob_start();
 
+
+require $__Includes['UsersService'];
 require $__Includes['DBClient'];
 try {
-//	$db = new DBClient();
-//	echo 'Successfuly connected to Database!';
+	$db = new DBClient();
+    $service = new UsersService();
 } catch (PDOException $e) {
 	echo 'ERROR: ' . $e->getMessage();
 }
+
 if (!isset($_GET['site'])) $_GET['site'] = 'home';
 switch($_GET['site']) {
 	case "queue":
@@ -33,24 +37,31 @@ switch($_GET['site']) {
 		$view = ('./viewModules/pages/logout.php');
 		break;
 	
+	case "addqueue":
+		$title = "Dodawanie auta do kolejki";
+		$view = ('./viewModules/pages/add_queue.php');
+		break;
+
 	case "addcar":
 		$title = "Dodawanie auta";
 		$view = ('./viewModules/pages/add_car.php');
 		break;
 
+	case "control":
+		$title = "Panel Sterowania";
+		$view = ('./viewModules/pages/control.php');
+		break;
+
 	default:
 		$title = "Home";
-		$view = ('./viewModules/pages/home.php');
+		if (isLogged()) {
+			$view = ('./viewModules/pages/home_logged_in.php');
+		} else {
+			$view = ('./viewModules/pages/home.php');
+		}
 		break;
 }
 
-
-		// if (isLogged())
-		// 	include('./viewModules/pages/home_logged_in.php');
-		// else {
-			
-		// }
-		// 	include('./viewModules/pages/home.php');
 ?>
 <!doctype html>
 

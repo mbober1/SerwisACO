@@ -34,7 +34,7 @@ class UsersService {
 	}
 
 	public function signup($email, $hash, $firstname, $lastname) {
-		$stmt = $this->database->prepare("INSERT INTO `users` (`id`, `email`, `password`, `firstname`, `lastname`) VALUES (NULL, :email, :pass, :firstname, :lastname);");
+		$stmt = $this->database->prepare("INSERT INTO `users` (`id`, `email`, `password`, `firstname`, `lastname`, `permission`) VALUES (NULL, :email, :pass, :firstname, :lastname, 0);");
 		$stmt->bindValue(':email', $email, PDO::PARAM_STR);
 		$stmt->bindValue(':pass', $hash, PDO::PARAM_STR);
 		$stmt->bindValue(':firstname', $firstname, PDO::PARAM_STR);
@@ -84,6 +84,7 @@ class UsersService {
 	public function checkMyQueue($ownerid) {
 		$carIds = array_column($this->getCars($ownerid), 'id');
 		$in = join(',', array_fill(0, count($carIds), '?'));
+		if (count($carIds) === 0) return array();
 		$stmt = $this->database->prepare('SELECT * FROM `queue` WHERE carid IN ('.$in.')');
 		$stmt->execute($carIds);
 		return $stmt->fetchAll();

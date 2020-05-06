@@ -25,7 +25,7 @@ else {
 
 <div class='background' style=' display: flex; align-items: center; justify-content: center;'>
 	<div class="tile_main">
-        <form id="addcar" class="card container" method="post">
+        <form id="addcar" class="card container" method="post" style="padding: 15px;">
 
             <div class="field">
             <label class="label">Marka</label>

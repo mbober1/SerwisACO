@@ -30,8 +30,15 @@ footer {
     width: 100%;
     color: white;
     background-color: #323232;
-    margin-top: 20px;
     padding: 8px;
+}
+
+.footer_container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 37%;
+
 }
 
 #login {
@@ -144,6 +151,7 @@ div.baner a:hover {
 .tiles_containter {
     display: flex;
     justify-content: space-around;
+    margin-bottom: 20px;
 }
 
 .tile_title {
@@ -163,10 +171,9 @@ div.baner a:hover {
     background-image: url("/SerwisACO/img/audi.jpg");
     min-height: 90vh;
     background-repeat: no-repeat;
-    background-size: cover;
     display: flex;
-    align-items: center;
     justify-content: center;
+    padding: 150px;
 }
 
 .tile_button {
@@ -189,6 +196,7 @@ div.baner a:hover {
     margin: 15px;
     text-align: left;
     display: flex;
+    justify-content: space-between;
 }
 
 h1 {
@@ -213,18 +221,22 @@ h2 {
 .control {
     color: white;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    /* align-items: center; */
+    justify-content: space-around;
+    background-color: rgb(74, 74, 74, 0.85);
+    padding: 15px;
 }
 
 .control_panel {
-    /* justify-content: space-around; */
-    margin: 10px;
-    background-color: rgb(74, 74, 74, 0.85);
-    padding: 25px;
-    min-width: 400px;
+    background-color: #323232;
+    padding: 15px;
     min-height: 200px;
     border-radius: 2px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    /* justify-content: space-around; */
 }
 
 .carlist {
@@ -236,6 +248,13 @@ h2 {
 
 .carinfo {
     padding: 10px;
-    background-color: #474747;
+    background-color: #323232;
     margin: 10px;
+    border: solid;
+    border-color: rgb(74, 74, 74, 0.85);
+}
+
+.queueinfo {
+    margin: 10px;
+    width: 33%;
 }

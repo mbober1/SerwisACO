@@ -1,6 +1,6 @@
 <?php 
 
-if(!isLogged()) header('Location: index.php?site=queue');
+if(!isLogged() || getUserPermissions()) header('Location: index.php?site=queue');
 else {
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (isset($_POST['carSelect']) && isset($_POST['failure'])) {
@@ -15,38 +15,54 @@ else {
         }
     }
 }
-?>
 
-<div class='background' style=' display: flex; align-items: center; justify-content: center;'>
-	<div class="tile_main">
-        <form id="addqueue" class="card container" method="post">
-            
-            <div class="field">
-                <label class="label">Wybierz auto</label>
-                <div class="control">
-                    <select required name="carSelect">
-                    <?php
-                    $rows = $service->getCars(getUserID());
-                    while ($row = array_shift($rows)) echo "<option value=", $row["id"], ">", $row["brand"], " ", $row["model"], " | ", $row["vin"]," </option>";?>
-                    </select>
-                </div>
-            </div>
+echo '
+<div class="background" style=" display: flex; align-items: center; justify-content: center;">
+    <div class="tile_main">';
 
-            <div class="field">
-                <label class="label">Wypisz usterki</label>
-                <div class="control">
-                    <input class="input" required type="text" name="failure" placeholder="np. auto nie odpala na zmnym">
-                </div>
-            </div>
+$rows = $service->getCars(getUserID());
+if ($rows) {
+    echo '
+    <form id="addqueue" class="card container" method="post" style="padding: 15px;">
+    <div class="field">
+        <label class="label">Wybierz auto</label>
+            <div class="control">';
 
-            <div class="field is-grouped">
-            <div class="control">
-                <button class="button is-link">Dodaj</button>
-            </div>
-            <div class="control">
-                <a href="index.php?site=queue"><button class="button is-link is-light">Anuluj</button></a>
-            </div>
-            </div>
-        </form>
+    echo '<select required name="carSelect" class="dropdown-content">';
+    while ($row = array_shift($rows)) echo "<option value=", $row["id"], ">", $row["brand"], " ", $row["model"], " | ", $row["vin"]," </option>";
+    echo '</select>
+        </div>
+    </div>
+    <div class="field">
+    <label class="label">Wypisz usterki</label>
+    <div class="control">
+        <input class="input" required type="text" name="failure" placeholder="np. auto nie odpala na zmnym">
     </div>
 </div>
+
+<div class="field is-grouped">
+<div class="control">
+    <button class="button is-link">Dodaj</button>
+</div>
+<div class="control">
+    <a href="index.php?site=queue"><button class="button is-link is-light">Anuluj</button></a>
+</div>
+</div>
+</form>'; 
+
+
+} else {
+    echo '<div id="addqueue" class="card container" method="post" style="padding: 15px;">';
+    echo "Nie masz dodanych żadnych pojazdów";
+    echo '<div class="control"><a href="index.php?site=addcar"><button class="button is-link">Dodaj auto</button></a></div></div>';
+}
+
+echo '</div>
+</div>';
+
+?>
+
+                    
+
+
+

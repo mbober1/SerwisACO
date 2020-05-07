@@ -29,7 +29,7 @@ class UserService {
 	}
 
 	public function signup($email, $hash, $firstname, $lastname) {
-		$stmt = $this->database->prepare("INSERT INTO `users` (`id`, `email`, `password`, `firstname`, `lastname`) VALUES (NULL, :email, :pass, :firstname, :lastname);");
+		$stmt = $this->database->prepare("INSERT INTO `users` (`id`, `email`, `password`, `firstname`, `lastname`, `permission`) VALUES (NULL, :email, :pass, :firstname, :lastname, 0);");
 		$stmt->bindValue(':email', $email, PDO::PARAM_STR);
 		$stmt->bindValue(':pass', $hash, PDO::PARAM_STR);
 		$stmt->bindValue(':firstname', $firstname, PDO::PARAM_STR);

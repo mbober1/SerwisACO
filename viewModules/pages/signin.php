@@ -62,6 +62,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 				</div>
 		</form>
 	</div>
-	<div><?php if (isset($error)) echo $error;
-elseif (isset($_SESSION['user_data']['tmp_email']) || isset($_SESSION['user_data']['tmp_password'])) echo'Wprowadź poprawny adres email'; ?></div>
+	<div><?php
+		if (isset($error))
+			echo $error;
+		elseif (isset($_SESSION['user_data']['tmp_email']) || isset($_SESSION['user_data']['tmp_password']))
+			echo'Wprowadź poprawny adres email';
+		?></div>
+
 </div>

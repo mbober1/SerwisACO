@@ -6,17 +6,18 @@ session_start();
 ob_start();
 
 
-require $__Includes['UsersService'];
+require $__Includes['UserService'];
 require $__Includes['DBClient'];
 try {
 	$db = new DBClient();
-    $service = new UsersService();
-} catch (PDOException $e) {
+	$service = new UserService();
+} catch (\Exception $e) {
 	echo 'ERROR: ' . $e->getMessage();
 }
 
-if (!isset($_GET['site'])) $_GET['site'] = 'home';
-switch($_GET['site']) {
+if (!isset($_GET['site']))
+	$_GET['site'] = 'home';
+switch ($_GET['site']) {
 	case "queue":
 		$title = "Kolejka";
 		$view = ('./viewModules/pages/queue.php');
@@ -26,7 +27,7 @@ switch($_GET['site']) {
 		$title = "Rejestracja";
 		$view = ('./viewModules/pages/signup.php');
 		break;
-	
+
 	case "signin":
 		$title = "Logowanie";
 		$view = ('./viewModules/pages/signin.php');
@@ -36,7 +37,7 @@ switch($_GET['site']) {
 		$title = "Wylogowanie";
 		$view = ('./viewModules/pages/logout.php');
 		break;
-	
+
 	case "addqueue":
 		$title = "Dodawanie auta do kolejki";
 		$view = ('./viewModules/pages/add_queue.php');
@@ -61,7 +62,6 @@ switch($_GET['site']) {
 		}
 		break;
 }
-
 ?>
 <!doctype html>
 
@@ -87,11 +87,11 @@ switch($_GET['site']) {
 		<?php
 		include('./viewModules/components/topbar.php');
 		include('./viewModules/components/banner.php');
-	
+
 		echo "<div id='content'>";
 		include($view);
 		echo '</div>';
-		
+
 		include('./viewModules/components/footer.php')
 		?>
 

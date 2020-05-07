@@ -1,9 +1,10 @@
 <?php
 
-function getSiteUrl(){
+function getSiteUrl() {
 	return MAIN_SITE_URL;
 }
-function getSiteDir(){
+
+function getSiteDir() {
 	return MAIN_SITE_DIR;
 }
 
@@ -40,25 +41,5 @@ function getUserPermissions() {
 	return $_SESSION['user_data']['permissions'];
 }
 
-
-$status = array(0=>"Złożono zlecenie", 1=>"Przyjęto", 2=>"W trakcie naprawy", 3=>"Do odbioru", 4=>"Zakończono");
-
-
-// function mustBeLogged($howToRedirect = false) {
-//	if (!isLogged()) {
-//		if ($howToRedirect)
-//			$_SESSION['login_referer'] = $_SITE_CONFIG['main_directory'];
-//		else
-//			$_SESSION['login_referer'] = $_SITE_CONFIG['main_directory'] . $_SERVER['REQUEST_URI'];
-//		gotoLogin();
-//		exit();
-//	}
-
-//	if ($_SESSION['user_data']['login_ip'] != $_SERVER['REMOTE_ADDR']) {
-//		$_SESSION['status_data'] = [
-//			'type' => 'user',
-//			'code' => 407,
-//		];
-//		header('Location: ' . $_SITE_CONFIG['main_directory'] . '/uzytkownik/status');
-//		exit();
-// }
+$status = array(0 => "Złożono zlecenie", 1 => "Przyjęto", 2 => "W trakcie naprawy", 3 => "Do odbioru", 4 => "Zakończono");
+$user_permissions = array(0 => "client", 1 => "worker", 2 => "admin");

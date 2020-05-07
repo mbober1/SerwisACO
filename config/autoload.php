@@ -2,5 +2,7 @@
 
 $__Includes = [
 	'DBClient' => __DIR__ . '/../includes/DBClient.php',
-	'UsersService' => __DIR__ . '/../includes/UsersService.php',
+	'UserService' => __DIR__ . '/../includes/UserService.php',
+	'WorkerService' => __DIR__ . '/../includes/WorkerService.php',
+	'AdminService' => __DIR__ . '/../includes/AdminService.php',
 ];

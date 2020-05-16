@@ -15,4 +15,17 @@ final class AdminService extends WorkerService {
 		return $stmt->execute();
 	}
 
+	public function addLog($userid, $title, $descript, $origin, $itemid) {
+		$stmt = $this->database->prepare("INSERT INTO `logs` (`id`, `user_id`, `action_title`, `action_description`, `origin`, `item_id`) VALUES (NULL, :userid, :title, :descript, :origin, :itemid);");
+		$stmt->bindValue(':userid', $userid, PDO::PARAM_STR);
+		$stmt->bindValue(':title', $title, PDO::PARAM_STR);
+		$stmt->bindValue(':descript', $descript, PDO::PARAM_STR);
+		$stmt->bindValue(':origin', $origin, PDO::PARAM_STR);
+		$stmt->bindValue(':itemid', $itemid, PDO::PARAM_STR);
+		return $stmt->execute();
+	}
+
+	public function getLog() {
+		return $this->database->query("SELECT * FROM `logs` ")->fetchAll(PDO::FETCH_ASSOC);
+	}
 }

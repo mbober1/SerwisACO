@@ -17,7 +17,6 @@ if (isLogged()) {
 	header('Location: index.php?site=home');
 ?>
 
-
-<div class='background'>
+<div style="display: flex; flex-direction: row;">
 <?php include($control); ?>
 </div>

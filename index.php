@@ -85,14 +85,18 @@ switch ($_GET['site']) {
 		<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 
 		<?php
+		echo '<div style="width: 100%;">';
 		include('./viewModules/components/topbar.php');
 		include('./viewModules/components/banner.php');
+		echo '</div>';
 
-		echo "<div id='content'>";
+		echo "<div>";
 		include($view);
 		echo '</div>';
 
-		include('./viewModules/components/footer.php')
+		echo '<div style="width: 100%;">';
+		include('./viewModules/components/footer.php');
+		echo '</div>';
 		?>
 
 		<script async defer src="https://use.fontawesome.com/releases/v5.6.3/js/all.js" integrity="sha384-EIHISlAOj4zgYieurP0SdoiBYfGJKkgWedPHH4jCzpCXLmzVsw1ouK59MuUtP4a1" crossorigin="anonymous"></script>

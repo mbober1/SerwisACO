@@ -28,13 +28,28 @@ class UserService {
 		}
 	}
 
-	public function signup($email, $hash, $firstname, $lastname) {
-		$stmt = $this->database->prepare("INSERT INTO `users` (`id`, `email`, `password`, `firstname`, `lastname`, `permission`) VALUES (NULL, :email, :pass, :firstname, :lastname, 0);");
+	public function signup($email, $hash, $firstname, $lastname, $phone, $addres) {
+		$stmt = $this->database->prepare("INSERT INTO `users` (`id`, `firstname`, `lastname`, `address_id`, `email`, `phone`, `password`, `permission`, `deleted`) VALUES (NULL, :firstname, :lastname, :addres, :email, :phone, :pass, '0', '0');");
 		$stmt->bindValue(':email', $email, PDO::PARAM_STR);
 		$stmt->bindValue(':pass', $hash, PDO::PARAM_STR);
 		$stmt->bindValue(':firstname', $firstname, PDO::PARAM_STR);
 		$stmt->bindValue(':lastname', $lastname, PDO::PARAM_STR);
+		$stmt->bindValue(':phone', $phone, PDO::PARAM_STR);
+		$stmt->bindValue(':addres', $addres, PDO::PARAM_STR);
 		return $stmt->execute();
+	}
+
+	public function addAddres($city, $code, $street, $flat_number) {
+		$stmt = $this->database->prepare("INSERT INTO `addresses` (`id`, `city`, `postal_code`, `street`, `flat_number`) VALUES (NULL, :city, :code, :street, :flat_number);");
+		$stmt->bindValue(':city', $city, PDO::PARAM_STR);
+		$stmt->bindValue(':code', $code, PDO::PARAM_STR);
+		$stmt->bindValue(':street', $street, PDO::PARAM_STR);
+		$stmt->bindValue(':flat_number', $flat_number, PDO::PARAM_STR);
+		$stmt->execute();
+
+		$stmt2 = $this->database->prepare("SELECT MAX(id) FROM `addresses`");
+		$stmt2->execute();
+		return	$stmt2->fetch();
 	}
 
 	public function addCar($ownerid, $brand, $model, $vin, $mileage, $power) {
@@ -49,9 +64,7 @@ class UserService {
 	}
 
 	public function getQueue() {
-		$stmt = $this->database->prepare('SELECT * FROM `queue` WHERE `status` != 4');
-		$stmt->execute();
-		return $stmt->fetchAll();
+		return $this->database->query("SELECT * FROM `queue` WHERE `status` != 4")->fetchAll(PDO::FETCH_ASSOC);
 	}
 
 	public function addToQueue($carid, $failure) {

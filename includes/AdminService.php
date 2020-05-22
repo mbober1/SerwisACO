@@ -26,6 +26,6 @@ final class AdminService extends WorkerService {
 	}
 
 	public function getLog() {
-		return $this->database->query("SELECT * FROM `logs` ")->fetchAll(PDO::FETCH_ASSOC);
+		return $this->database->query("SELECT * FROM `logs` order by id desc LIMIT 7")->fetchAll(PDO::FETCH_ASSOC);
 	}
 }

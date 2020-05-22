@@ -10,10 +10,10 @@ if(isLogged()) {
 	try {
 		$rows = $service->getQueue();
 		while ($row = array_shift($rows)) {
-			$car = $service->carInfo($row['carid']);
+			$car = $service->carInfo($row['car_id']);
 			echo "<div class='carinfo'>";
 			echo "<div class=''><b>", $car['brand']," ", $car['model'] , "</b></div>";
-			echo "<div class=''>Aktualizacja: <b>", $row['timestamp'] , "</b></div>";
+			echo "<div class=''>Aktualizacja: <b>", $row['last_modified'] , "</b></div>";
 			echo "<div class=''> Status: <b>", $status[$row["status"]] , "</b></div>";
 			echo "</div>";
 		}

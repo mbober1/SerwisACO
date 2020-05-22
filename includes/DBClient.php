@@ -51,4 +51,23 @@ class DBClient extends PDO {
 		return $output;
 	}
 
+	public function addLog($user, $action_title, $action_description, $origin, $item_id) {
+		$stmt = $this->prepare("INSERT INTO `logs` (`id`, `user_id`, `action_title`, `action_description`, `origin`, `item_id`) VALUES (NULL, :user, :action_title, :action_description, :origin, :item_id);");
+		$stmt->bindValue(':user', $user, PDO::PARAM_STR);
+		$stmt->bindValue(':action_title', $action_title, PDO::PARAM_STR);
+		$stmt->bindValue(':action_description', $action_description, PDO::PARAM_STR);
+		$stmt->bindValue(':origin', $origin, PDO::PARAM_STR);
+		$stmt->bindValue(':item_id', $item_id, PDO::PARAM_STR);
+		return $stmt->execute();
+	}
+
+	public function getUser($id) {
+		$stmt = $this->prepare("SELECT * FROM `users` WHERE `id` = ?;");
+		$stmt->bindParam(1, $id, PDO::PARAM_STR);
+		$stmt->execute();
+		return $stmt->fetch();
+	}
+
+
+
 }

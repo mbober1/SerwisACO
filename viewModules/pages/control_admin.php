@@ -52,16 +52,21 @@ $service = new AdminService();
 				$rows = $service->getLog();
 
 				while ($row = array_shift($rows)) {
+					$user = $db->getUser($row["user_id"]);
+					$queue_info = $service->getQueueId($row["item_id"]);
+					$car_info = $service->carInfo($queue_info["car_id"]);
 					echo "<div class='carinfo'>";
-					echo "<div>", $row["action_title"], " ", $row["origin"], "</div>";
+					echo "<div>", $row["action_title"], "</div>";
+					echo "<div>", $status[$row["origin"]], "</div>";
 					echo "<div>", $row["action_description"], "</div>";
+					echo "<div>", $user['firstname'], " ", $user['lastname'] , " - ", $user_permissions[$user["permission"]], "</div>";
+					echo "<div>", $car_info["brand"], " ", $car_info["model"], " | ", $car_info["vin"], "</div>";
 					echo "</div>";
 				}
 			} catch (\Exception $e) {
 				echo 'ERROR: ' . $e->getMessage();
 			}
 			?>
-
         </form>
     </div>
 </div>

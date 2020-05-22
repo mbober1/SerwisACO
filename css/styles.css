@@ -2,8 +2,14 @@ body {
     padding: 0;
     margin: 0;
     background-color: #222629;
+    background-image: url("/SerwisACO/img/audi.jpg");
     font-family: 'Montserrat', sans-serif;
     min-height: 100vh;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center; 
 }
 
 
@@ -31,6 +37,8 @@ footer {
     color: white;
     background-color: #323232;
     padding: 8px;
+
+    margin-top: 30px; 
 }
 
 .footer_container {
@@ -42,9 +50,9 @@ footer {
 }
 
 #login {
-    width: 300px;
+    /* width: 300px; */
+    display: flex;
     padding: 20px;
-    flex: 0;
     border-radius: 3px;
 }
 
@@ -80,6 +88,7 @@ footer {
     display: flex;
     align-items: center;
     justify-content: space-around;
+    margin-bottom: 100px;
 }
 
 #topbar {
@@ -128,11 +137,6 @@ div.baner a:hover {
     padding: 11px;
 }
 
-/* #content {
-    background-color: #323232;
-    width: 400px;
-} */
-
 .tile_main {
     background-color: rgb(74, 74, 74, 0.85);
     padding: 20px;
@@ -165,15 +169,6 @@ div.baner a:hover {
     font-size: 18px;
     color: white;
     margin-bottom: 15px;
-}
-
-.background {
-    background-image: url("/SerwisACO/img/audi.jpg");
-    min-height: 90vh;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: center;
-    padding: 150px;
 }
 
 .tile_button {
@@ -229,14 +224,12 @@ h2 {
 
 .control_panel {
     background-color: #323232;
-    padding: 15px;
     min-height: 200px;
     border-radius: 2px;
     align-items: center;
     display: flex;
     flex-direction: column;
-    margin: 10px;
-    /* justify-content: space-around; */
+    padding: 10px;
 }
 
 .carlist {

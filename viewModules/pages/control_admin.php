@@ -43,8 +43,25 @@ $service = new AdminService();
 
         </form>
     </div>
+
+
+    <div class='control_panel' >
+        <div><h1>Logi</h1></div>
+        <form method="post"><?php
+			try {
+				$rows = $service->getLog();
+
+				while ($row = array_shift($rows)) {
+					echo "<div class='carinfo'>";
+					echo "<div>", $row["action_title"], " ", $row["origin"], "</div>";
+					echo "<div>", $row["action_description"], "</div>";
+					echo "</div>";
+				}
+			} catch (\Exception $e) {
+				echo 'ERROR: ' . $e->getMessage();
+			}
+			?>
+
+        </form>
+    </div>
 </div>
-
-<?php
-include __DIR__ . '/control_worker.php';
-

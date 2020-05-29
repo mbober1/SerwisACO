@@ -52,23 +52,14 @@ class UserService {
 		return	$stmt2->fetch();
 	}
 
-<<<<<<< HEAD
 	public function addCar($ownerid, $brand, $model, $vin, $mileage, $power_car, $engine_capacity, $fuel, $body_color, $number_doors) {
 		$stmt = $this->database->prepare("INSERT INTO `cars` (`id`, `owner_id`, `brand`, `model`, `vin`, `power`, `mileage`, `engine_capacity`, `fuel`, `body_color`, `number_doors`) VALUES (NULL, :ownerid, :brand, :model, :vin, :power_car, :mileage, :engine_capacity, :fuel, :body_color, :number_doors);");
-=======
-	public function addCar($ownerid, $brand, $model, $vin, $mileage, $power, $engine_capacity, $fuel, $body_color, $number_doors) {
-		$stmt = $this->database->prepare("INSERT INTO `cars` (`id`, `owner_id`, `brand`, `model`, `vin`, `power`, `mileage`, `engine_capacity`, `fuel`, `body_color`, `number_doors`) VALUES (NULL, :ownerid, :brand, :model, :vin, :power, :mileage, :engine_capacity, :fuel, :body_color, :number_doors, 0);");
->>>>>>> 02e49f18b6e832e26c7c9e3a6fd043f29029ab9a
 		$stmt->bindValue(':ownerid', $ownerid, PDO::PARAM_STR);
 		$stmt->bindValue(':brand', $brand, PDO::PARAM_STR);
 		$stmt->bindValue(':model', $model, PDO::PARAM_STR);
 		$stmt->bindValue(':vin', $vin, PDO::PARAM_STR);
 		$stmt->bindValue(':mileage', $mileage, PDO::PARAM_STR);
-<<<<<<< HEAD
 		$stmt->bindValue(':power_car', $power_car, PDO::PARAM_STR);
-=======
-		$stmt->bindValue(':power', $power, PDO::PARAM_STR);
->>>>>>> 02e49f18b6e832e26c7c9e3a6fd043f29029ab9a
 		$stmt->bindValue(':engine_capacity', $engine_capacity, PDO::PARAM_STR);
 		$stmt->bindValue(':fuel', $fuel, PDO::PARAM_STR);
 		$stmt->bindValue(':body_color', $body_color, PDO::PARAM_STR);

@@ -54,11 +54,7 @@ $service = new AdminService();
 				while ($row = array_shift($rows)) {
 					$user = $db->getUser($row["user_id"]);
 					$queue_info = $service->getQueueId($row["item_id"]);
-<<<<<<< HEAD
 					$car_info = $service->getCarById($queue_info["car_id"]);
-=======
-					$car_info = $service->carInfo($queue_info["car_id"]);
->>>>>>> 02e49f18b6e832e26c7c9e3a6fd043f29029ab9a
 					echo "<div class='carinfo'>";
 					echo "<div>", $row["action_title"], "</div>";
 					echo "<div>", $status[$row["origin"]], "</div>";

@@ -15,10 +15,7 @@ $service = new WorkerService();
 				if (isset($_POST['status2'])) {
 					$service->changeStatus($_POST['status2'], 2);
 					$db->addLog($_SESSION['user_data']['user_id'], 'change queue status', date('Y-m-d G:i:s'), 2, $_POST['status2']);
-<<<<<<< HEAD
 					$service->startRepair($_POST['status2']);
-=======
->>>>>>> 02e49f18b6e832e26c7c9e3a6fd043f29029ab9a
 				}
 
 				if (isset($_POST['status3'])) {
@@ -32,11 +29,7 @@ $service = new WorkerService();
 				$rows = $service->getQueue();
 
 				while ($row = array_shift($rows)) {
-<<<<<<< HEAD
 					$car = $service->getCarById($row["car_id"]);
-=======
-					$car = $service->carInfo($row["car_id"]);
->>>>>>> 02e49f18b6e832e26c7c9e3a6fd043f29029ab9a
 					echo "<div class='carinfo'>";
 					echo "<div>Pojazd: <b>", $car["brand"], " ", $car["model"],"</b></div>";
 					echo "<div>Nr. VIN: <b>", $car["vin"], "</b></div>";
@@ -53,7 +46,7 @@ $service = new WorkerService();
 			} catch (\Exception $e) {
 				echo 'ERROR: ' . $e->getMessage();
 			}
-			?>item_id
+			?>
 
         </form>
     </div>

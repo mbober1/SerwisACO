@@ -32,16 +32,25 @@
                 $rows = $service->checkMyQueue(getUserID());
                 if($rows) {
                     while ($row = array_shift($rows)) {
+<<<<<<< HEAD
                         $car = $service->getCarById($row["car_id"]);
+=======
+                        $car = $service->carInfo($row["car_id"]);
+>>>>>>> 02e49f18b6e832e26c7c9e3a6fd043f29029ab9a
                         echo "<div class='carinfo'>";
                         echo "<div>Pojazd: ", $car["brand"], " ", $car["model"],"</div>";
                         echo "<div>Usterki: ", $row["failure"],"</div>";
                         echo "<div>Notatki: ", $row["repair_notes"],"</div>";
                         echo "<div>Status: ", $status[$row["status"]],"</div>";
+<<<<<<< HEAD
                         echo "<div>Zgłoszono: ", $row["create_date"],"</div>";
                         echo "<div>Ostatnia status z: ", $row["last_modified"],"</div>";
                         echo "<div>Rozpoczęto naprawę: ", $row["start_repair_date"],"</div>";
                         echo "<div>Zakończono naprawę: ", $row["end_repair_date"],"</div>";
+=======
+                        echo "<div>Ostatnia status z: ", $row["last_modified"],"</div>";
+                        echo "<div>Rozpoczęto naprawę: ", $row["start_repair_date"],"</div>";
+>>>>>>> 02e49f18b6e832e26c7c9e3a6fd043f29029ab9a
                         echo "</div>";
                     }
                 } else echo "Nie masz żadnych aktualnych napraw";?>

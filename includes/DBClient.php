@@ -32,23 +32,23 @@ class DBClient extends PDO {
 		return $this->conn;
 	}
 
-	###	MAIN
-
-	public function dateForDB($time = 0) {
-		return gmdate("Y-m-d H:i:s", $time);
+	public function addLog($user, $action_title, $action_description, $origin, $item_id) {
+		$stmt = $this->prepare("INSERT INTO `logs` (`id`, `user_id`, `action_title`, `action_description`, `origin`, `item_id`) VALUES (NULL, :user, :action_title, :action_description, :origin, :item_id);");
+		$stmt->bindValue(':user', $user, PDO::PARAM_STR);
+		$stmt->bindValue(':action_title', $action_title, PDO::PARAM_STR);
+		$stmt->bindValue(':action_description', $action_description, PDO::PARAM_STR);
+		$stmt->bindValue(':origin', $origin, PDO::PARAM_STR);
+		$stmt->bindValue(':item_id', $item_id, PDO::PARAM_STR);
+		return $stmt->execute();
 	}
 
-	public function howManyUpdates() {
-		return $this->query('SELECT ROW_COUNT() as `how_much`')->fetch(PDO::FETCH_ASSOC)['how_much'];
+	public function getUser($id) {
+		$stmt = $this->prepare("SELECT * FROM `users` WHERE `id` = ?;");
+		$stmt->bindParam(1, $id, PDO::PARAM_STR);
+		$stmt->execute();
+		return $stmt->fetch();
 	}
 
-	### PARSE
-	// For futher purpose
-	public function parseMeta($array) {
-		$output = [];
-		foreach ($array as $value)
-			$output[$value['meta_key']] = $value['meta_value'];
-		return $output;
-	}
+
 
 }

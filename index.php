@@ -90,9 +90,15 @@ switch ($_GET['site']) {
 		include('./viewModules/components/banner.php');
 		echo '</div>';
 
-		echo "<div>";
+		echo '<div style="max-width: 60%;">';
 		include($view);
 		echo '</div>';
+
+		if ($title == "Home") {
+			echo '<div style="max-width: 100%;">';
+			include('./viewModules/components/adverts.php');
+			echo '</div>';
+		}
 
 		echo '<div style="width: 100%;">';
 		include('./viewModules/components/footer.php');

@@ -52,14 +52,18 @@ class UserService {
 		return	$stmt2->fetch();
 	}
 
-	public function addCar($ownerid, $brand, $model, $vin, $mileage, $power) {
-		$stmt = $this->database->prepare("INSERT INTO `cars` (`id`, `owner_id`, `brand`, `model`, `vin`, `power`, `mileage`) VALUES (NULL, :ownerid, :brand, :model, :vin, :mileage, :power);");
+	public function addCar($ownerid, $brand, $model, $vin, $mileage, $power_car, $engine_capacity, $fuel, $body_color, $number_doors) {
+		$stmt = $this->database->prepare("INSERT INTO `cars` (`id`, `owner_id`, `brand`, `model`, `vin`, `power`, `mileage`, `engine_capacity`, `fuel`, `body_color`, `number_doors`) VALUES (NULL, :ownerid, :brand, :model, :vin, :power_car, :mileage, :engine_capacity, :fuel, :body_color, :number_doors);");
 		$stmt->bindValue(':ownerid', $ownerid, PDO::PARAM_STR);
 		$stmt->bindValue(':brand', $brand, PDO::PARAM_STR);
 		$stmt->bindValue(':model', $model, PDO::PARAM_STR);
 		$stmt->bindValue(':vin', $vin, PDO::PARAM_STR);
 		$stmt->bindValue(':mileage', $mileage, PDO::PARAM_STR);
-		$stmt->bindValue(':power', $power, PDO::PARAM_STR);
+		$stmt->bindValue(':power_car', $power_car, PDO::PARAM_STR);
+		$stmt->bindValue(':engine_capacity', $engine_capacity, PDO::PARAM_STR);
+		$stmt->bindValue(':fuel', $fuel, PDO::PARAM_STR);
+		$stmt->bindValue(':body_color', $body_color, PDO::PARAM_STR);
+		$stmt->bindValue(':number_doors', $number_doors, PDO::PARAM_STR);
 		return $stmt->execute();
 	}
 
@@ -67,21 +71,28 @@ class UserService {
 		return $this->database->query("SELECT * FROM `queue` WHERE `status` != 4")->fetchAll(PDO::FETCH_ASSOC);
 	}
 
+	public function getQueueId($id) {
+		$stmt = $this->database->prepare("SELECT * FROM `queue` WHERE `id` = ?;");
+		$stmt->bindParam(1, $id, PDO::PARAM_STR);
+		$stmt->execute();
+		return $stmt->fetch();
+	}
+
 	public function addToQueue($carid, $failure) {
-		$stmt = $this->database->prepare("INSERT INTO `queue` (`id`, `carid`, `status`, `timestamp`, `failure`) VALUES (NULL, :carid, '0', CURRENT_TIMESTAMP, :failure);");
+		$stmt = $this->database->prepare("INSERT INTO `queue` (`id`, `car_id`, `status`, `create_date`, `last_modified`, `start_repair_date`, `end_repair_date`, `failure`, `repair_notes`, `deleted`) VALUES (NULL, :carid, '0', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL, NULL,  :failure, NULL, '0');");
 		$stmt->bindValue(':carid', $carid, PDO::PARAM_STR);
 		$stmt->bindValue(':failure', $failure, PDO::PARAM_STR);
 		return $stmt->execute();
 	}
 
-	public function carInfo($carid) {
+	public function getCarById($carid) {
 		$stmt = $this->database->prepare("SELECT * FROM `cars` WHERE `id` = ?;");
 		$stmt->bindParam(1, $carid, PDO::PARAM_STR);
 		$stmt->execute();
 		return $stmt->fetch();
 	}
 
-	public function getCars($ownerid) {
+	public function getCarByOwner($ownerid) {
 		$stmt = $this->database->prepare("SELECT * FROM `cars` WHERE `owner_id` = ?;");
 		$stmt->bindParam(1, $ownerid, PDO::PARAM_STR);
 		$stmt->execute();
@@ -89,11 +100,11 @@ class UserService {
 	}
 
 	public function checkMyQueue($ownerid) {
-		$carIds = array_column($this->getCars($ownerid), 'id');
+		$carIds = array_column($this->getCarByOwner($ownerid), 'id');
 		$in = join(',', array_fill(0, count($carIds), '?'));
 		if (!$in)
 			return [];
-		$stmt = $this->database->prepare('SELECT * FROM `queue` WHERE carid IN (' . $in . ')');
+		$stmt = $this->database->prepare('SELECT * FROM `queue` WHERE car_id IN (' . $in . ')');
 		$stmt->execute($carIds);
 		return $stmt->fetchAll();
 	}

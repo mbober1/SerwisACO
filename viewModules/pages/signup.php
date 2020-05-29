@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 					$addres_id = $service->addAddres($city, $_POST['zip'], $street, $_POST['flat_number']);
 					$query = $service->signup($email, $hash, $firstname, $lastname, $_POST['phone'], $addres_id['MAX(id)']);
-					// header('Location: index.php?site=logout');
+					header('Location: index.php?site=logout');
 				} else {
 					$error = "Taki email już istnieje";
 				}

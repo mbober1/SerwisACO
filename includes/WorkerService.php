@@ -21,4 +21,10 @@ class WorkerService extends UserService {
 		return $stmt->execute();
 	}
 
+	public function startRepair($id) {
+		$stmt = $this->database->prepare("UPDATE `queue` SET `start_repair_date` = CURRENT_TIMESTAMP WHERE `queue`.`id` = ?;");
+		$stmt->bindParam(1, $id, PDO::PARAM_STR);
+		return $stmt->execute();
+	}
+
 }
